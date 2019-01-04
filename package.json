@@ -1,0 +1,29 @@
+{
+  "name": "nodejs_learning",
+  "version": "1.0.0",
+  "description": "Web Shopping list, where you can add or remove items to your list.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sadmiraga/nodeJS_learning.git"
+  },
+  "author": "Sadmir Hasanic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sadmiraga/nodeJS_learning/issues"
+  },
+  "homepage": "https://github.com/sadmiraga/nodeJS_learning#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

@@ -1,12 +1,26 @@
-/*server.js*/
-const http = require('http');
-const hostname = '127.0.0.1';
-const port = 5000;
-const server = http.createServer(function(req, res) {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
-server.listen(port, hostname, function() {
-  console.log('Server running at http://'+ hostname + ':' + port + '/');
-});
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+const items = require('./routes/api/items');
+
+const app = express();
+
+//BodyParser Middleware
+app.use(bodyParser.json());
+
+// DB Config
+const db = require('./config/keys').mongoURI;
+
+//connect to Mongo
+mongoose
+    .connect(db)
+    .then(()=>console.log('MongoDB connected...'))
+    .catch(err=>console.log(err));
+
+//use routes
+app.use('/api/items',items);
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => console.log(`Server started on port ${port}`));
